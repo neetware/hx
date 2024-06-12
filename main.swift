@@ -25,12 +25,12 @@ struct PackageManager {
             remove(package: package)
             let task = Process()
             task.executableURL = URL(fileURLWithPath: gitExecutablePath())
-            task.arguments = ["clone", url, ".hx/\(package)"]
+            task.arguments = ["clone", url, ".spm/\(package)"]
             task.currentDirectoryPath = "."
             task.launch()
             task.waitUntilExit()
             if task.terminationStatus == 0 {
-                print("Package \(package) is now installed, run it with hx run \(package) command.")
+                print("Package \(package) is now installed, run it with spm run \(package) command.")
             } else {
                 print("Failed to install \(package)")
             }
@@ -40,7 +40,7 @@ struct PackageManager {
     }
 
     static func remove(package: String) {
-        let packagePath = ".hx/\(package)"
+        let packagePath = ".spm/\(package)"
         if FileManager.default.fileExists(atPath: packagePath) {
             try? FileManager.default.removeItem(atPath: packagePath)
             print("Package \(package) has been removed")
@@ -53,7 +53,7 @@ if CommandLine.arguments.count > 1 {
     case "i":
         if CommandLine.arguments.count == 3 {
             let package = CommandLine.arguments[2]
-            if FileManager.default.fileExists(atPath: ".hx/\(package)") {
+            if FileManager.default.fileExists(atPath: ".spm/\(package)") {
                 print("Package \(package) is already installed")
             } else {
                 print("Installing \(package)")
@@ -69,7 +69,7 @@ if CommandLine.arguments.count > 1 {
         if CommandLine.arguments.count == 3 {
             let package = CommandLine.arguments[2]
             print("Running \(package)")
-            print("\u{001B}[31mNOTICE: THE 'hx r <package>' COMMAND IS NOT IMPLEMENTED YET\u{001B}[0m")
+            print("\u{001B}[31mNOTICE: THE 'spm r <package>' COMMAND IS NOT IMPLEMENTED YET\u{001B}[0m")
             
         }
     case "u":
@@ -83,14 +83,14 @@ if CommandLine.arguments.count > 1 {
     case "help":
         print("\u{001B}[32mHelp for the 'Hack' package manager:\u{001B}[0m")
         print("")
-        print("hx i <package> - Installs a package.")
-        print("hx r <package> - Runs a package.")
-        print("hx d <package> - Removes a package.")
-        print("hx u <package> - Updates a package.")
+        print("spm i <package> - Installs a package.")
+        print("spm r <package> - Runs a package.")
+        print("spm d <package> - Removes a package.")
+        print("spm u <package> - Updates a package.")
         print("")
-        print("\u{001B}[31mNOTICE: THE 'hx r <package>' COMMAND IS NOT IMPLEMENTED YET\u{001B}[0m")
+        print("\u{001B}[31mNOTICE: THE 'spm r <package>' COMMAND IS NOT IMPLEMENTED YET\u{001B}[0m")
     default:
-        print("Invalid command, try hx help")
+        print("Invalid command, try spm help")
     }
 }
 

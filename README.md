@@ -1,13 +1,12 @@
-# The "Hacks" package manager
+# The script package manager
 Install and run scripts the easy way!
 
-# Hack package manager feature checklist
+# Script package manager feature checklist
 
 - [x] Ability to download the package
 - [x] Ability to delete the package
 - [x] Ability to update the package
 - [ ] Ability to run the package
-- [ ] Properly set the .hx folder in the user's home directory
 
 ## Requirements:
 
@@ -20,36 +19,36 @@ Install and run scripts the easy way!
 
 ```bash
 swiftc main.swift -o hx
-sudo mv hx /usr/local/bin
+sudo mv spm /usr/local/bin
 ```
 ## Usage:
 
 Help command:
 
 ```bash
-hx i help
+spm i help
 ```
 
 Install hacks:
 
 ```bash
-hx i <hackname>
+spm i <scriptname>
 ```
 
 Run hacks:
 
 ```bash
-hx r <hackname>
+spm r <scriptname>
 ```
 
 Delete hacks:
 
 ```bash
-hx d <hackname>
+spm d <scriptname>
 ```
 
 Update hacks:
 
 ```bash
-hx u <hackname>
+spm u <scriptname>
 ```
