@@ -18,7 +18,7 @@ Install and run scripts the easy way!
 ### Build it and add it to your $PATH 
 
 ```bash
-swiftc main.swift -o hx
+swiftc main.swift -o spm
 sudo mv spm /usr/local/bin
 ```
 ## Usage:
